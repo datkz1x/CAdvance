@@ -1,0 +1,2 @@
+NOTE:
+__attribute__((packet)) : dùng khi cần tối ưu bộ nhớ
