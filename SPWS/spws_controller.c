@@ -6,7 +6,7 @@
 void SPWS_RunAutoMode(void){
     //Moisture < 40
     if(g_sensorData.soilMoisturePercent < g_systemSetting.minMoistureThreshold){ 
-        if(g_systemState.pumpState = PUMP_OFF){
+        if(g_systemState.pumpState == PUMP_OFF){
             HAL_TurnPumpOn();
             g_systemState.ledState = LED_WATERING;
             g_systemState.wateringTimeCounter = 0;
@@ -14,7 +14,7 @@ void SPWS_RunAutoMode(void){
         }
     }
     //
-    if(g_systemState.pumpState = PUMP_ON){
+    if(g_systemState.pumpState == PUMP_ON){
 
         g_systemState.wateringTimeCounter++;
 
