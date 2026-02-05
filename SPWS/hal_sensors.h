@@ -3,7 +3,7 @@
 
 
 #include <stdint.h>
-#include <config.h>
+#include "config.h"
 
 
 float HAL_ReadSoilMoisture(void);

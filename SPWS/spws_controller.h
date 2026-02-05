@@ -6,8 +6,7 @@
 
 extern SensorData_t g_sensorData;
 extern SystemSettings_t g_systemSetting;
-extern PumpState_t g_pumpState;
-extern LedState_t g_ledState;
+extern SystemState_t g_systemState;
 
 void SPWS_RunAutoMode(void);
 void SPWS_RunManualMode(void);

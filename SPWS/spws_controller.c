@@ -1,32 +1,31 @@
+#include <stdio.h>
 #include "spws_controller.h"
 #include "hal_actuators.h"
-#include <stdio.h>
 
-static uint16_t wateringTime = 0;
 
 void SPWS_RunAutoMode(void){
-    //Moisture
-    if(g_sensorData.soilMoisturePercent < g_systemSetting.minMoistureThreshold){
-        if(g_pumpState = PUMP_OFF){
+    //Moisture < 40
+    if(g_sensorData.soilMoisturePercent < g_systemSetting.minMoistureThreshold){ 
+        if(g_systemState.pumpState = PUMP_OFF){
             HAL_TurnPumpOn();
-            g_ledState = LED_WATERING;
-            wateringTime = 0;
+            g_systemState.ledState = LED_WATERING;
+            g_systemState.wateringTimeCounter = 0;
+            printf("Auto watering start\n");
         }
-        
     }
     //
-    if(g_pumpState = PUMP_ON){
+    if(g_systemState.pumpState = PUMP_ON){
 
-        wateringTime++;
+        g_systemState.wateringTimeCounter++;
 
-        if(g_sensorData.soilMoisturePercent > g_systemSetting.maxMoistureThreshold || wateringTime > g_settings.maxWateringDuration_s){
+        if(g_sensorData.soilMoisturePercent > g_systemSetting.maxMoistureThreshold || g_systemState.wateringTimeCounter > g_systemSetting.maxWateringDuration_s){
             HAL_TurnPumpOff();
-            g_ledState = LED_NORMAL;
-
+            g_systemState.ledState = LED_NORMAL;
+            printf("Auto watering stop\n");
         }
     }
 }
 
 void SPWS_RunManualMode(void){
-    g_ledState = LED_NORMAL;
+    g_systemState.ledState = LED_NORMAL;
 }

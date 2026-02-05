@@ -4,11 +4,11 @@
 
 #include "config.h"
 
-extern PumpState_t g_pumpState;
+extern SystemState_t g_systemState;
 
 void HAL_TurnPumpOn(void);
 void HAL_TurnPumpOff(void);
-void HAL_SetLed(LedState_t led);
+void HAL_SetLed(void);
 
 
 #endif

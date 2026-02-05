@@ -1,5 +1,5 @@
-#include "hal_buttons.h"
 #include <stdio.h>
+#include "hal_buttons.h"
 
 
 bool HAL_IsButton1Pressed(void){

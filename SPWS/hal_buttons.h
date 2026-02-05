@@ -3,11 +3,11 @@
 
 
 #include <stdbool.h>
-#include <config.h>
+#include "config.h"
 
 
-bool HAL_IsButton1Pressed(void); // Auto <-> Manual
-bool HAL_IsButton2Pressed(void); // Turn on Pump when in Manual Mode
+bool HAL_IsButton1Pressed(void); /*Auto <-> Manual*/
+bool HAL_IsButton2Pressed(void); /*Turn on Pump when in Manual Mode*/
 
 
 #endif

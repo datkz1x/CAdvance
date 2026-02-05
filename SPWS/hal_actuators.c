@@ -1,19 +1,19 @@
-#include "hal_actuators.h"
 #include <stdio.h>
+#include "hal_actuators.h"
 
 
 void HAL_TurnPumpOn(void){
-    g_pumpState = PUMP_ON;
+    g_systemState.pumpState = PUMP_ON;
     printf("Pump On\n");
 }
 
 void HAL_TurnPumpOff(void){
-    g_pumpState = PUMP_OFF;
+    g_systemState.pumpState = PUMP_OFF;
     printf("Pump Off\n");
 }
 
-void HAL_SetLed(LedState_t led){
-    switch (led){
+void HAL_SetLed(void){
+    switch (g_systemState.ledState){
         case LED_NORMAL: printf("Normal\n"); break;
         case LED_WATERING: printf("Watering\n"); break;
         case LED_LOW_MOISTURE_ALERT: printf("Low Moisture Alert\n"); break;

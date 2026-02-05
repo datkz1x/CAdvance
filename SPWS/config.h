@@ -15,10 +15,10 @@ typedef enum {
 } PumpState_t;
 
 typedef enum {
-    LED_NORMAL, //Xanh
-    LED_WATERING, //Vang
-    LED_LOW_MOISTURE_ALERT, //Do nhap nhay
-    LED_ERROR, //Do lien tuc
+    LED_NORMAL, /*Green*/
+    LED_WATERING, /*Yellow*/
+    LED_LOW_MOISTURE_ALERT, /*Red*/
+    LED_ERROR, /*Red*/
 } LedState_t;
 
 typedef struct 
@@ -45,4 +45,4 @@ typedef struct
     unsigned int sensorCheckCounter;
 } SystemState_t;
 
-
+#endif
